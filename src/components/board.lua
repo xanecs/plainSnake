@@ -8,7 +8,7 @@ Board = {
 
 function Board.init()
 	local w, h = love.window.getDesktopDimensions()
-	love.window.setMode(w, h, {fullscreen = false, fullscreentype = "exclusive"})
+	love.window.setMode(w, h, {fullscreen = true, fullscreentype = "exclusive"})
 	local w, h = love.graphics.getWidth(), love.graphics.getHeight()
 	
 	Board.blocksize = h / 50

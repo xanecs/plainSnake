@@ -33,6 +33,12 @@ function startGame ()
 end
 
 function love.keypressed (key, scancode, isrepeat)
+	if GameState ~= 'playing' then
+		if key == 'escape' then
+			love.event.quit(0)
+		end
+	end
+
 	if GameState == 'not_started' or GameState == 'game_over' then
 		if key == 'space' then
 			startGame()
@@ -43,8 +49,10 @@ function love.keypressed (key, scancode, isrepeat)
 		end
 	elseif GameState == 'playing' then
 		Players[1]:rotate(scancode)
+		if key == 'escape' then
+			GameState = 'paused'
+		end
 	end
-	
 end
 
 function love.mousereleased (x, y, btn, istouch)
